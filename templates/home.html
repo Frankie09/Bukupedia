@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bukupedia</title>
+
+  <link href="/static/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/fontawesome/css/all.min.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/templates/bootstrap.min.css">
+	<script src="/static/templates/jquery.min.js"></script>
+	<script src="/static/templates/popper.min.js"></script>
+	<script src="/static/templates/bootstrap.min.js"></script>
+	   <style>
+   .card:hover {
+        -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        transform: scale(1.01);
+   }
+
+.navbar {
+
+  background-color: #DFF1F3;
+
+
+}
+.asc {
+
+  background-color: #8AA39B;
+
+
+}
+
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm  navbar-light">
+		<a class="navbar-brand" href="/webix">Bukupedia</a>
+
+	</nav>
+ <div class="container" style="margin-top:50px">
+	 <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+
+              <div class="card-body">
+                <h1>Login</h1>
+                <p class="text-muted">Silahkan masuk ke akun anda.</p>
+              <form method="POST">
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                    <input type="text" name="username" class="form-control" placeholder="Nama" autocomplete="off" required="">
+                </div>
+
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                    <input type="password" name="password" class="form-control" placeholder="Kata sandi" required="">
+                </div>
+
+
+                <div class="row">
+                  <div class="col-6">
+                      <button type="submit" name="login"  class="btn btn-secondary px-4">Masuk</button>
+
+                  </div>
+
+				  <div class="col-6">
+
+				  <span> <a style="color: secondary;" href="/daftar"> Daftar</a> </span>
+				  </div>
+
+                </div>
+              </form>
+
+              </div>
+            </div>
+
+
+            <div class="card text-white asc py-5 d-md-down-none" style="width:44%">
+              <div class="card-body text-center">
+                <div>
+                  <h2 >Hi, Selamat Datang!</h2>
+                  <p>Untuk mengakses, silahkan login terlebih dahulu.</p>
+                </div>
+
+              </div>
+			  <center><h6><a  style="color: white;" href="/admin">Login Admin</a></h6></center>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <br>
+
+  <h4 style="text-align: center">{{ gagal }}</h4>
+
+
+
+</body>
+</html>

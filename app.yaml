@@ -1,0 +1,10 @@
+runtime: python38
+instance_class: F1
+service : frankie2
+handlers:
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
+vpc_access_connector:
+  name: projects/sat-kapita-selekta-b/locations/asia-southeast2/connectors/connector-training

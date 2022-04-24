@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bukupedia</title>
+     <link href="/static/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/fontawesome/css/all.min.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/templates/bootstrap.min.css">
+	<script src="/static/templates/jquery.min.js"></script>
+	<script src="/static/templates/popper.min.js"></script>
+	<script src="/static/templates/bootstrap.min.js"></script>
+    <style>
+            .pic {
+    width: 50px;
+    height: 50px;
+    object-fit: contain
+}
+
+.table thead {
+    background-color: #1D9BAE
+}
+
+.table thead th {
+    padding: 30px;
+    font-size: 14px;
+    color: white
+}
+
+.table tbody td input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer
+}
+
+.container .table-wrap {
+    margin: 20px auto;
+    overflow-x: auto
+}
+
+.container .table-wrap::-webkit-scrollbar {
+    height: 5px
+}
+
+.container .table-wrap::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
+}
+
+.table>:not(caption)>*>* {
+    padding: 2rem 0.5rem
+}
+
+
+    .pic {
+    width: 50px;
+    height: 50px;
+    object-fit: contain
+}
+
+.table thead {
+    background-color: #1f211f
+}
+
+.table thead th {
+    padding: 30px;
+    font-size: 14px;
+    color: white
+}
+
+.table tbody td input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer
+}
+
+.container .table-wrap {
+    margin: 20px auto;
+    overflow-x: auto
+}
+
+.container .table-wrap::-webkit-scrollbar {
+    height: 5px
+}
+
+.container .table-wrap::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #5D7ECD, #0C91E6)
+}
+
+.table>:not(caption)>*>* {
+    padding: 2rem 0.5rem
+}
+
+.input {
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-weight: 600;
+    outline: none;
+    padding: 8px
+}
+
+::placeholder {
+    color: black;
+    font-weight: 600
+}
+
+.table tbody td input[type="checkbox"]:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    content: "\f00c";
+    color: #fff;
+    font-size: 15px;
+    display: none
+}
+
+.table tbody td input[type="checkbox"]:checked,
+.table tbody td input[type="checkbox"]:checked:hover {
+    background-color: #21cf95
+}
+
+.table tbody td input[type="checkbox"]:checked::after {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.table tbody td input[type="checkbox"]:hover {
+    background-color: #ddd
+}
+
+.table tbody td {
+    padding: 30px;
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 600
+}
+
+.table tbody td .fa-times {
+    color: #D32F2F
+}
+
+.text-muted {
+    font-size: 12.5px
+}
+
+.table tbody tr td:nth-of-type(3) {
+    min-width: 20px
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand" href="/adminhome">ADMIN</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/adminhome">Beranda</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/pesananadmin">Pesanan</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-link nav-item  " href="/returadmin">Retur</a>
+				</li>
+
+					<li class="nav-item">
+					<a class="nav-link nav-item  " href="/riwayatadmin">Riwayat</a>
+				</li>
+
+
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/keluar">Keluar</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+<form method="post">
+				<div class="container">
+    <div class="table-wrap">
+        <table class="table table-responsive table-borderless">
+            <thead>
+
+                <th>&nbsp;</th>
+                <th>Produk</th>
+                <th>Harga/unit</th>
+
+                <th>Jumlah</th>
+
+                <th>Harga</th>
+                <th nowrap>Tanggal pemesanan</th>
+            </thead>
+			{% set a = namespace(value=0) %}
+			{% set b = namespace(value='') %}
+            {% for x in nim2 %}
+             <tbody>
+                <tr class="align-middle alert border-bottom" role="alert">
+
+
+                    <td class="text-center"> <img class="pic" src="/static/assets/css/book.png" alt=""> </td>
+                    <td>
+                        <div>
+                            <p class="m-0 fw-bold">{{x.2}}</p>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        <div >Rp.{{x.3}}</div>
+                    </td>
+
+                    <td class="d-"> <center>{{x.4}}</center></td>
+
+                    <td>Rp.{{x.8}} </td>
+                    <td>
+						{{x.6}}
+                    </td>
+                </tr>
+
+				{% set a.value = a.value + x.3*x.4 %}
+			 {% set b.value = x.7 %}
+            </tbody>
+
+            {% endfor %}
+
+            <tr>
+
+				 <th>&nbsp;</th>
+				 <td colspan="2" >Status : {{b.value}}</td>
+				<td nowrap>Total :</center></td>
+				<td><center>Rp.{{a.value}}</center></td>
+				<th>&nbsp;</th>
+				</tr>
+
+				</table> </div> </div> </form>
+</body>
+</html>

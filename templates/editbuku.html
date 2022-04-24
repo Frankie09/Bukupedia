@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bukupedia</title>
+       <link href="/static/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/fontawesome/css/all.min.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/templates/bootstrap.min.css">
+	<script src="/static/templates/jquery.min.js"></script>
+	<script src="/static/templates/popper.min.js"></script>
+	<script src="/static/templates/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand" href="/adminhome">ADMIN</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/adminhome">Beranda</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/pesananadmin">Pesanan</a>
+				</li>
+				 <li class="nav-item">
+					<a class="nav-link nav-item  " href="/returadmin">Retur</a>
+				</li>
+
+					<li class="nav-item">
+					<a class="nav-link nav-item  " href="/riwayatadmin">Riwayat</a>
+				</li>
+
+
+
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/keluar">Keluar</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+				<form method="post">
+
+					<table class="table table-bordered">
+						<tr>
+							<th class="table-dark" width="15%" nowrap>ID BUKU</th>
+							<td><input type="text" class="form-control" name="id" value="" required></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input class="btn btn-dark" type="submit" value="CARI"></td>
+
+						</tr>
+						<tr>
+							<td colspan="2"><a  data-toggle="modal" data-target="#data{{index}}"><h4>{{id}}</h4></a></td>
+						</tr>
+					</table>
+				</form>
+			{% for x in nim2 %}
+
+			 <div id="data{{index}}" class="modal fade bd-example-modal-lg mt-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+					<div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      	</div>
+		<form method="get" action="/editedit" enctype="multipart/form-data">
+							<table class="table table-bordered table-hover">
+								<tr>
+									<th class="table-dark" width="15%" nowrap>ID</th>
+									<td><input type="text" class="form-control" name="id" value="{{x.0}}" disabled></td>
+								</tr>
+						<tr>
+							<th class="table-dark">Judul</th>
+							<td><input class="form-control" type="text" name="judul" value="{{x.1}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Harga</th>
+							<td><input class="form-control" type="text" name="harga" value="{{x.2}}" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Deskripsi</th>
+							<td><input class="form-control" type="text" name="deskripsi" value="{{x.3}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Jumlah Halaman</th>
+							<td><input class="form-control" type="text" name="halaman" value="{{x.4}}" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Penerbit</th>
+							<td><input class="form-control" type="text" name="penerbit" value="{{x.5}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Tanggal Terbit</th>
+							<td><input class="form-control" type="text" name="tanggal" value="{{x.6}}" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Berat</th>
+							<td><input class="form-control" type="text" name="berat" value="{{x.7}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Lebar</th>
+							<td><input class="form-control" type="text" name="lebar" value="{{x.8}}" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Panjang</th>
+							<td><input class="form-control" type="text" name="panjang" value="{{x.9}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>ISBN</th>
+							<td><input class="form-control" type="text" name="isbn" value="{{x.10}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark">Bahasa</th>
+							<td><input class="form-control" type="text" name="bahasa" value="{{x.11}}" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Tema</th>
+							<td><input class="form-control" type="text" name="tema" value="{{x.12}}" required></td>
+						</tr>
+
+
+								<tr>
+									<td colspan="2">
+										<input class="btn btn-warning text-light" type="submit" name="ganti" value="GANTI">
+										 &nbsp;&nbsp;&nbsp;
+										<a class="btn btn-danger text-light" href="/editedit?hapus={{x.0}}">HAPUS</a>
+									</td>
+								</tr>
+							</table>
+						</form>
+
+		</div>
+			</div>
+				</div>
+
+			{% endfor %}
+
+
+
+
+				<br>
+
+</body>
+</html>

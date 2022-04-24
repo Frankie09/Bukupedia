@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bukupedia</title>
+     <link href="/static/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/fontawesome/css/all.min.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/templates/bootstrap.min.css">
+	<script src="/static/templates/jquery.min.js"></script>
+	<script src="/static/templates/popper.min.js"></script>
+	<script src="/static/templates/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand" href="/adminhome">ADMIN</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/adminhome">Beranda</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link nav-item  " href="/pesananadmin">Pesanan</a>
+				</li>
+				 <li class="nav-item">
+					<a class="nav-link nav-item  " href="/returadmin">Retur</a>
+				</li>
+
+					<li class="nav-item">
+					<a class="nav-link nav-item  " href="/riwayatadmin">Riwayat</a>
+				</li>
+
+
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/keluar">Keluar</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<form method='post' action='' enctype='multipart/form-data'>
+
+			<div class="alert-danger">{{ pesan }}</div>
+			<div class="alert-success">{{ berhasil }}</div>
+
+					<table class="table table-borderless mt-2 ">
+						<tr>
+							<th class="table-dark" width="15%" nowrap>ID</th>
+							<td><input class="form-control" type="text" name="id" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Judul</th>
+							<td><input class="form-control" type="text" name="judul" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Harga</th>
+							<td><input class="form-control" type="text" name="harga" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Deskripsi</th>
+							<td><input class="form-control" type="text" name="deskripsi" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Jumlah Halaman</th>
+							<td><input class="form-control" type="text" name="halaman" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Penerbit</th>
+							<td><input class="form-control" type="text" name="penerbit" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Tanggal rilis</th>
+							<td><input class="form-control" type="text" name="tanggal" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Berat</th>
+							<td><input class="form-control" type="text" name="berat" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>Lebar</th>
+							<td><input class="form-control" type="text" name="lebar" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Tinggi</th>
+							<td><input class="form-control" type="text" name="panjang" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark" width="15%" nowrap>ISBN</th>
+							<td><input class="form-control" type="text" name="isbn" required></td>
+						</tr>
+
+						<tr>
+							<th class="table-dark">Bahasa</th>
+							<td><input class="form-control" type="text" name="bahasa" required></td>
+						</tr>
+						<tr>
+							<th class="table-dark">Tema</th>
+							<td><input class="form-control" type="text" name="tema" required></td>
+						</tr>
+
+						<tr>
+							<td colspan="2"><input class="btn btn-info" type="submit" name="submit" value="Tambah"></td>
+						</tr>
+					</table>
+				</form>
+
+
+
+</body>
+</html>
